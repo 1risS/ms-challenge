@@ -6,6 +6,7 @@ import fb from "./assets/icon-facebook.svg"
 import arrowUp from "./assets/icon-up.svg"
 import arrowDown from "./assets/icon-down.svg"
 import IndicatorValue from "./IndicatorValue";
+import IndicatorChart from "./IndicatorChart";
 
 interface IModalProps {
     isOpen: boolean;
@@ -239,6 +240,7 @@ const Modal = ({ isOpen, onClose, socialNetworkName, socialLogo, userName, follo
                         <NFTodayText>New {followerName} TODAY</NFTodayText>
                     </NewFollowersTodayContainer>
                 </MetricsContainer>
+                <IndicatorChart />
             </ModalStyled>
             <ModalBackgroundStyled />
         </ModalContainer>

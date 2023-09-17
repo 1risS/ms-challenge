@@ -1,6 +1,7 @@
 export const primary = {
     primaryGreen: 'hsl(163, 72%, 41%)',
     primaryRed: 'hsl(356, 69%, 56%)',
+    chart: '#8F8BDA',
     facebook: 'hsl(195, 100%, 50%)',
     twitter: 'hsl(203, 89%, 53%)',
     instagram: 'linear-gradient(to right, #FDC468, #DF4996)'
@@ -13,7 +14,6 @@ export const darkTheme = {
     cardBgHover: '#333A56',
     textColor1: '#FFFFFF',
     textColor2: '#8B97C6',
-    chart: '#8F8BDA',
     toggle: 'linear-gradient(to left, #3EDA82, #378FE6)',
     toggleCircle: '#252B45'
 }
@@ -25,7 +25,6 @@ export const lightTheme = {
     cardBgHover: '#E1E3F0',
     textColor1: '#1E202A',
     textColor2: '#63687E',
-    chart: '#8F8BDA',
     toggle: '#AEB3CB',
     toggleCircle: 'white',
 }
