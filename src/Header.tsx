@@ -4,24 +4,26 @@ import ModeToggle from "./ModeToggle";
 
 const H1 = styled.h1`
 font-family: Inter;
-font-size: 22px;
+font-size: 28px;
 color: white;
 font-weight: 700;
+margin:0;
 `;
 
-const H3 = styled.h1`
+const H3 = styled.h3`
 font-family: Inter;
-font-size: 12px;
+font-size: 14px;
 color: #AEB3CB;
 font-weight: 700;
 align-self: flex-start;
+margin: 0;
 `;
 
 const HeaderContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 5% 10% 5% 10%;
+    padding: 0.2em;
 `
 
 const HeaderTextContainer = styled.div`

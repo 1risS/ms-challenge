@@ -9,7 +9,7 @@ const Label = styled.label`
   gap: 10px;
   cursor: pointer;
   font-family: Inter;
-  font-size: 12px;
+  font-size: 14px;
   color: #AEB3CB;
   font-weight: 700;
 `;
