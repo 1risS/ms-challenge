@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { primary } from './Theme';
+import { styled, useTheme } from 'styled-components'
 
 const data = [
     { x: 4, y: 3 },
@@ -14,27 +15,48 @@ const data = [
     { x: 13, y: 12 },
 ];
 
+const ChartContainer = styled.div`
+    background-color: ${({ theme }) => theme.chartBg};
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 23px;
+    height: 200px;
+`
+
+const ChartTitle = styled.h2`
+    color: ${primary.chart};
+    text-align: left;
+    margin-left: 3.5rem;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 1.5em;
+`
+
 export default function IndicatorChart() {
+    const theme = useTheme()
+
     return (
-        <ResponsiveContainer width="100%" height="100%">
-            <LineChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5,
-                }}
-            >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="x" />
-                <YAxis />
-                <Tooltip />
-                {/* <Legend /> */}
-                <Line type="monotone" dataKey="y" stroke={primary.chart} dot={{ r: 4, fill: 'none' }} activeDot={{ r: 6, fill: primary.chart, stroke: primary.chart }} />
-            </LineChart>
-        </ResponsiveContainer>
+        <ChartContainer>
+            <ChartTitle>May 4 - May 13</ChartTitle>
+            <ResponsiveContainer width="100%" height="80%">
+                <LineChart
+                    width={500}
+                    height={300}
+                    data={data}
+                    margin={{
+                        top: 5,
+                        right: 30,
+                        left: 20,
+                        bottom: 5,
+                    }}
+                >
+                    <CartesianGrid strokeDasharray="3 3" stroke={primary.chartTick} />
+                    <XAxis dataKey="x" tick={{ stroke: primary.chart, strokeWidth: 0.5, fontSize: '0.65rem' }} tickMargin={8} stroke={primary.chart} />
+                    <YAxis tick={{ stroke: primary.chart, strokeWidth: 0.5, fontSize: '0.65rem' }} tickMargin={8} stroke={primary.chart} />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="y" stroke={primary.chart} dot={{ r: 4, fill: theme.chartBg }} activeDot={{ r: 6, fill: primary.chart, stroke: primary.chart }} />
+                </LineChart>
+            </ResponsiveContainer>
+        </ChartContainer>
     );
 }

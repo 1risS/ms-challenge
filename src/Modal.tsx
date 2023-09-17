@@ -1,8 +1,6 @@
-import React from "react";
 import styled from "styled-components";
-import { darkTheme, lightTheme, primary, devices } from './Theme';
-import xIcon from "./assets/x-icon.svg"
-import fb from "./assets/icon-facebook.svg"
+import { primary, devices } from './Theme';
+import { ReactComponent as CloseIcon } from "./assets/x-icon.svg"
 import arrowUp from "./assets/icon-up.svg"
 import arrowDown from "./assets/icon-down.svg"
 import IndicatorValue from "./IndicatorValue";
@@ -66,11 +64,10 @@ justify-content: space-between;
 }
 `;
 
-const CloseButtonStyled = styled.img`
+const CloseButtonStyled = styled(CloseIcon)`
     height: 17px;
     width: 17px;
-    // position: absolute;
-    color: ${({ theme }) => theme.textColor1};
+    stroke: ${({ theme }) => theme.textColor1};
     top: 2em;
     right: 2em;
     z-index: 1;
@@ -215,7 +212,7 @@ const Modal = ({ isOpen, onClose, socialNetworkName, socialLogo, userName, follo
             <ModalStyled>
                 <ModalHeader>
                     {socialNetworkName} {followerName}
-                    <CloseButtonStyled src={xIcon} onClick={(e) => onClose(e)} />
+                    <CloseButtonStyled onClick={(e) => onClose(e)} />
                 </ModalHeader>
                 <UserContainer>
                     <SMLogo src={socialLogo}></SMLogo>
