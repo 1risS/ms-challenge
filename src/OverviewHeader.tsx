@@ -1,11 +1,16 @@
 import "./index.css";
 import styled from "styled-components";
+import { devices } from "./Theme"
 
 const OverviewHeaderContainer = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
 padding-top: 3em;
+
+@media ${devices.mobileL}{
+    margin-left: 2em;
+}
 `
 
 const H2 = styled.h2`

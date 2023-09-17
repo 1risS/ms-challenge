@@ -1,6 +1,7 @@
 import "./index.css";
 
 import styled from "styled-components";
+import { devices } from "./Theme";
 import { ChangeEvent, useState } from "react";
 
 const Label = styled.label`
@@ -12,6 +13,18 @@ const Label = styled.label`
   font-size: 14px;
   color: #AEB3CB;
   font-weight: 700;
+
+  @media ${devices.tablet}{
+      font-size: 12px;
+  }
+  @media ${devices.mobileL}{
+      margin: 2em;
+      width: 80px;
+      font-size: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+  }
 `;
 
 const Switch = styled.div`

@@ -1,5 +1,6 @@
 import "./index.css";
 import styled from "styled-components";
+import { devices } from './Theme'
 import ModeToggle from "./ModeToggle";
 
 const H1 = styled.h1`
@@ -8,6 +9,14 @@ font-size: 28px;
 color: white;
 font-weight: 700;
 margin:0;
+
+@media ${devices.tablet}{
+    font-size: 26px;
+}
+@media ${devices.mobileL}{
+    font-size: 28px;
+    text-align: left;
+}
 `;
 
 const H3 = styled.h3`
@@ -17,6 +26,14 @@ color: #AEB3CB;
 font-weight: 700;
 align-self: flex-start;
 margin: 0;
+
+@media ${devices.tablet}{
+    font-size: 12px;
+}
+@media ${devices.mobileL}{
+    font-size: 14px;
+    text-align: left;
+}
 `;
 
 const HeaderContainer = styled.div`
@@ -29,6 +46,10 @@ const HeaderContainer = styled.div`
 const HeaderTextContainer = styled.div`
     display: flex;
     flex-direction: column;
+
+    @media ${devices.mobileL}{
+        margin: 1.5em 0em 0em 1.5em;
+    }
 `
 
 const Header = () => {

@@ -1,5 +1,6 @@
 import "./index.css";
 import styled from "styled-components";
+import { devices } from "./Theme";
 import OverviewCard from "./OverviewCard";
 import facebook from "./assets/icon-facebook.svg"
 import instagram from "./assets/icon-instagram.svg"
@@ -14,6 +15,14 @@ const OverviewCardsContainer = styled.div`
     flex-wrap: wrap;
     border-radius: 5px;
     padding-top: 1em;
+
+    @media ${devices.mobileL}{
+        justify-content: center;
+    }
+    @media ${devices.mobileM}{
+    }
+    @media ${devices.mobileS}{
+    }
 `
 
 const overviewCardData = [

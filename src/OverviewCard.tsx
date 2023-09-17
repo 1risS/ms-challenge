@@ -1,5 +1,6 @@
 import "./index.css";
 import styled from "styled-components";
+import { devices } from "./Theme";
 import arrowUp from './assets/icon-up.svg'
 import arrowDown from './assets/icon-down.svg'
 
@@ -21,6 +22,23 @@ const OverviewCardContainer = styled.div`
     align-items: space-evenly;
     position: relative;
     border-radius: 5px;
+
+    @media ${devices.laptop} {
+        width: 235px;
+        height: 114px;
+    }
+    @media ${devices.tablet}{
+        width: 187px;
+        height: 91px;
+    }
+    @media ${devices.mobileL}{
+        height: 114px;
+        width: 85%;
+        margin-bottom: 3%;
+    }
+    @media ${devices.mobileS}{
+        width: 80%;
+    }
 `
 
 const Indicator = styled.div`
@@ -31,6 +49,13 @@ const Indicator = styled.div`
     position: absolute;
     top: 20%;
     left: 10%;
+
+    @media ${devices.tablet}{
+        font-size: 12px;
+    }
+    @media ${devices.mobileL}{
+        font-size: 16px;
+    }
 `
 const SMLogo = styled.img`
     width: 26px;
@@ -38,6 +63,11 @@ const SMLogo = styled.img`
     position: absolute;
     top: 20%;
     right: 10%;
+
+    @media ${devices.tablet}{
+        width: 24px;
+        height: 24px;
+    }
 `
 
 const IndicatorValue = styled.div`
@@ -48,6 +78,13 @@ const IndicatorValue = styled.div`
     position: absolute;
     bottom: 20%;
     left: 10%;
+
+    @media ${devices.tablet}{
+        font-size: 26px;
+    }
+    @media ${devices.mobileL}{
+        font-size: 32px;
+    }
 `
 
 const PercentageValueContainer = styled.div`
@@ -64,6 +101,15 @@ const PercentageArrow = styled.img`
     width: 8px;
     height: 4px;
     padding-right: 0.125em;
+
+    @media ${devices.tablet}{
+        width: 6px;
+        height: 4px;
+    }
+    @media ${devices.mobileL}{
+        width: 8px;
+        height: 4px;
+    }
 `
 
 const PercentageValue = styled.div<{ $todayPercentage: number }>`
@@ -71,6 +117,13 @@ const PercentageValue = styled.div<{ $todayPercentage: number }>`
     font-size: 14px;
     font-weight: 700;
     color: ${props => (props.$todayPercentage <= 0) ? "hsl(356, 69%, 56%)" : "hsl(163, 72%, 41%)"} ;
+
+    @media ${devices.tablet}{
+        font-size: 12px;
+    }
+    @media ${devices.mobileL}{
+        font-size: 14px;
+    }
 `
 
 const OverviewCard = ({ socialLogo, indicator, value, todayPercentage }: OverviewCardProps) => {

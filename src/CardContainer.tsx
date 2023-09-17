@@ -1,5 +1,6 @@
 import "./index.css";
 import styled from "styled-components";
+import { devices } from './Theme'
 import Card from "./Card";
 import facebook from "./assets/icon-facebook.svg"
 import instagram from "./assets/icon-instagram.svg"
@@ -42,6 +43,22 @@ const CardsContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin-top: 3em;
+
+    @media ${devices.mobileL}{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    @media ${devices.mobileM}{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    @media ${devices.mobileS}{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }   
 `
 
 const CardContainer = () => {
