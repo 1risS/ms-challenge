@@ -45,7 +45,7 @@ const overviewCardData = [
         todayPercentage: 2257,
     },
     {
-        socialLogo: facebook,
+        socialLogo: instagram,
         indicator: "Profile Views",
         value: 52000,
         todayPercentage: 1375,

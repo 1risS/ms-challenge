@@ -8,10 +8,9 @@ const Label = styled.label`
   display: flex;
   align-items: center;
   gap: 10px;
-  cursor: pointer;
   font-family: Inter;
   font-size: 14px;
-  color: #AEB3CB;
+  color: ${({ theme }) => theme.textColor2};
   font-weight: 700;
 
   @media ${devices.tablet}{
@@ -31,9 +30,10 @@ const Switch = styled.div`
   position: relative;
   width: 48px;
   height: 24px;
-  background: linear-gradient(to left, #3EDA82, #378FE6);
+  background: ${({ theme }) => theme.toggle};
   border-radius: 32px;
   transition: 300ms all;
+  cursor: pointer;
 
   &:before {
     transition: 300ms all;
@@ -43,8 +43,8 @@ const Switch = styled.div`
     height: 18px;
     border-radius: 35px;
     top: 50%;
-    left: 2px;
-    background: #252B45;
+    left: 3px;
+    background: ${({ theme }) => theme.toggleCircle};
     transform: translate(0, -50%);
   }
 `;
@@ -54,19 +54,18 @@ const Input = styled.input`
   position: absolute;
 
   &:checked + ${Switch} {
-    background: #AEB3CB;
-
     &:before {
-      transform: translate(25px, -50%);
+      transform: translate(24px, -50%);
     }
   }
 `;
 
-const ModeToggle = () => {
+const ModeToggle = ({ onChange }: { onChange: React.ChangeEventHandler<HTMLInputElement> }) => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
+    onChange(e)
   };
 
   return (

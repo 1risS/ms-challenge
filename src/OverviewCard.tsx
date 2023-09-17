@@ -1,8 +1,9 @@
 import "./index.css";
 import styled from "styled-components";
-import { devices } from "./Theme";
+import { devices, primary } from "./Theme";
 import arrowUp from './assets/icon-up.svg'
 import arrowDown from './assets/icon-down.svg'
+import IndicatorValue from "./IndicatorValue";
 
 interface OverviewCardProps {
     socialLogo: string;
@@ -16,12 +17,18 @@ const OverviewCardContainer = styled.div`
     height: 159px;
     display: flex;
     flex-direction: column;
-    background-color: #252A41;
+    background-color:  ${({ theme }) => theme.cardBg};
     margin-bottom: 3%;
     justify-content: center;
     align-items: space-evenly;
     position: relative;
     border-radius: 5px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: ${({ theme }) => theme.cardBgHover}
+    }
+
 
     @media ${devices.laptop} {
         width: 235px;
@@ -44,8 +51,8 @@ const OverviewCardContainer = styled.div`
 const Indicator = styled.div`
     font-family: Inter;
     font-size: 16px;
-    font-width: 700;
-    color: #8B97C6;
+    font-weight: 700;
+    color:  ${({ theme }) => theme.textColor2};
     position: absolute;
     top: 20%;
     left: 10%;
@@ -70,10 +77,10 @@ const SMLogo = styled.img`
     }
 `
 
-const IndicatorValue = styled.div`
+const StyledIndicatorValue = styled(IndicatorValue)`
     font-family: Inter;
     font-size: 32px;
-    color: white;
+    color: ${({ theme }) => theme.textColor1};
     font-weight: 700;
     position: absolute;
     bottom: 20%;
@@ -116,7 +123,7 @@ const PercentageValue = styled.div<{ $todayPercentage: number }>`
     font-family: Inter;
     font-size: 14px;
     font-weight: 700;
-    color: ${props => (props.$todayPercentage <= 0) ? "hsl(356, 69%, 56%)" : "hsl(163, 72%, 41%)"} ;
+    color: ${props => (props.$todayPercentage <= 0) ? primary.primaryRed : primary.primaryGreen} ;
 
     @media ${devices.tablet}{
         font-size: 12px;
@@ -131,7 +138,7 @@ const OverviewCard = ({ socialLogo, indicator, value, todayPercentage }: Overvie
         <OverviewCardContainer>
             <Indicator> {indicator} </Indicator>
             <SMLogo src={socialLogo} />
-            <IndicatorValue>{value}</IndicatorValue>
+            <StyledIndicatorValue>{value}</StyledIndicatorValue>
             <PercentageValueContainer>
                 <PercentageArrow src={(todayPercentage > 0) ? arrowUp : arrowDown} />
                 <PercentageValue $todayPercentage={todayPercentage}> {Math.abs(todayPercentage)} % </ PercentageValue>

@@ -6,7 +6,7 @@ import ModeToggle from "./ModeToggle";
 const H1 = styled.h1`
 font-family: Inter;
 font-size: 28px;
-color: white;
+color: ${({ theme }) => theme.textColor1};
 font-weight: 700;
 margin:0;
 
@@ -22,7 +22,7 @@ margin:0;
 const H3 = styled.h3`
 font-family: Inter;
 font-size: 14px;
-color: #AEB3CB;
+color:${({ theme }) => theme.textColor2};
 font-weight: 700;
 align-self: flex-start;
 margin: 0;
@@ -52,14 +52,14 @@ const HeaderTextContainer = styled.div`
     }
 `
 
-const Header = () => {
+const Header = ({ onChange }: { onChange: React.ChangeEventHandler<HTMLInputElement> }) => {
     return (
         <HeaderContainer>
             <HeaderTextContainer>
                 <H1>Social Media Dashboard</H1>
                 <H3>Total followers: 23,004</H3>
             </HeaderTextContainer>
-            <ModeToggle />
+            <ModeToggle onChange={onChange} />
         </ HeaderContainer>
     );
 };

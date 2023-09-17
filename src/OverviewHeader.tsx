@@ -16,7 +16,7 @@ padding-top: 3em;
 const H2 = styled.h2`
 font-family: Inter;
 font-size: 24px;
-color: white;
+color: ${({ theme }) => theme.textColor1};
 font-weight: 700;
 margin:0;
 `

@@ -1,21 +1,30 @@
 import "./index.css";
 import styled from "styled-components";
-import { devices } from './Theme'
+import { devices, primary } from './Theme'
 import arrowUp from './assets/icon-up.svg'
 import arrowDown from './assets/icon-down.svg'
+import Modal from './Modal'
+import { useEffect, useState } from 'react'
+import IndicatorNumber from "./IndicatorValue";
+import IndicatorValue from "./IndicatorValue";
 
 const CardContainer = styled.div<{ $borderColor: string }>`
     width: 326px;
     height: 277px;
     display: flex;
     flex-direction: column;
-    background-color: #252A41;
+    background-color: ${({ theme }) => theme.cardBg};
     border-radius: 5px;
     align-items: center;
     justify-content: space-evenly;
     border-top: 6px solid transparent;
     border-image: ${props => props.$borderColor};
     border-image-slice: 1;
+    cursor: pointer;
+
+    &:hover{
+        background-color: ${({ theme }) => theme.cardBgHover}
+    }
 
     @media ${devices.laptop} {
         width: 235px;
@@ -52,7 +61,7 @@ const SMLogo = styled.img`
 const UserName = styled.div`
     font-family: Inter;
     font-size: 14px;
-    color: #AEB3CB;
+    color: ${({ theme }) => theme.textColor2};
     font-weight: 700;
     margin-left: 0.5em;
 
@@ -69,37 +78,13 @@ const FollowersContainer = styled.div`
     flex-direction: column;
 `
 
-function FollowerNumber({ className, children }: any) {
-    let value = children;
-
-    if (value > 10000) {
-        value = `${value / 1000}K`
-    }
-    return (
-        <div className={className}>{value}</div>
-    )
-}
-
-const StyledFollowerNumber = styled(FollowerNumber)`
-    font-family: Inter;
-    font-size: 54px;
-    color: white;
-    font-weight: 700;
-
-    @media ${devices.tablet}{
-        font-size: 50px;
-    }
-    @media ${devices.mobileL}{
-        font-size: 54px;
-    }
-`
-
 const Followers = styled.div`
     font-family: Inter;
     font-size: 14px;
     font-weight: 400;
-    color: #AEB3CB;
+    color: ${({ theme }) => theme.textColor2};
     text-transform: uppercase;
+    letter-spacing: 0.3em;
 
     @media ${devices.tablet}{
         font-size: 10px;
@@ -124,7 +109,7 @@ const Today = styled.div<{ $todayDiff: number }>`
     font-family: Inter;
     font-size: 14px;
     font-weight: 700;
-    color: ${props => (props.$todayDiff <= 0) ? "hsl(356, 69%, 56%)" : "hsl(163, 72%, 41%)"} ;
+    color: ${props => (props.$todayDiff <= 0) ? primary.primaryRed : primary.primaryGreen} ;
 
     @media ${devices.tablet}{
         font-size: 10px;
@@ -133,25 +118,47 @@ const Today = styled.div<{ $todayDiff: number }>`
         font-size: 14px;
     }
 `
-interface CardProps {
+
+const StyledFollowerNumber = styled(IndicatorValue)`
+font-family: Inter;
+font-size: 54px;
+color: ${({ theme }) => theme.textColor1};
+font-weight: 700;
+
+@media ${devices.tablet}{
+    font-size: 50px;
+}
+@media ${devices.mobileL}{
+    font-size: 54px;
+}
+`
+export interface ICardProps {
+    socialNetworkName: string;
     socialLogo: string;
     userName: string;
     followers: number;
     todayDiff: number;
+    diff10days: number;
     borderColor: string;
+    followerName: string;
 }
 
+const Card = ({ socialNetworkName, socialLogo, userName, followers, todayDiff, diff10days, borderColor, followerName }: ICardProps) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-const Card = ({ socialLogo, userName, followers, todayDiff, borderColor }: CardProps) => {
     return (
-        <CardContainer $borderColor={borderColor}>
+        <CardContainer $borderColor={borderColor} onClick={() => setIsModalOpen(true)}>
+            <Modal isOpen={isModalOpen} onClose={(e) => {
+                e.stopPropagation()
+                setIsModalOpen(false)
+            }} socialNetworkName={socialNetworkName} socialLogo={socialLogo} userName={userName} followers={followers} todayDiff={todayDiff} followerName={followerName} diff10days={diff10days}></Modal>
             <UserContainer>
                 <SMLogo src={socialLogo}></SMLogo>
                 <UserName> {userName} </UserName>
             </UserContainer>
             <FollowersContainer>
                 <StyledFollowerNumber>{followers}</StyledFollowerNumber>
-                <Followers>followers</Followers>
+                <Followers>{followerName}</Followers>
             </FollowersContainer>
             <TodayContainer>
                 <TodayArrow src={(todayDiff > 0) ? arrowUp : arrowDown}></TodayArrow>
