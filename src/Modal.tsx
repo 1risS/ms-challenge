@@ -5,6 +5,7 @@ import arrowUp from "./assets/icon-up.svg"
 import arrowDown from "./assets/icon-down.svg"
 import IndicatorValue from "./IndicatorValue";
 import IndicatorChart from "./IndicatorChart";
+import { KeyboardEventHandler } from "react";
 
 interface IModalProps {
     isOpen: boolean;
@@ -18,9 +19,10 @@ interface IModalProps {
     followerName: string;
 }
 
-const ModalBackgroundStyled = styled.div`
-    position: absolute;
+const ModalBackdrop = styled.div`
+    position: fixed;
     background: rgba(0,0,0,0.6);
+    height: 100vh;
     top: 0;
     left: 0;
     right: 0;
@@ -32,7 +34,7 @@ const ModalStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background:  ${({ theme }) => theme.cardBg};
+    background:  ${({ theme }) => theme.chartBg2};
     border-radius: 23px;
     position: absolute;
     top: 20%;
@@ -41,27 +43,36 @@ const ModalStyled = styled.div`
     min-width: 30rem;
     z-index: 2;
     width: 80%;
-    height: 500px;
+
+    @media ${devices.mobileS}{
+        top: 10%;
+        width: 100%;
+        min-width: auto;
+    }
 `;
 
 const ModalHeader = styled.h1`
-font-family: Inter;
-font-size: 28px;
-color: ${({ theme }) => theme.textColor1};
-text-align: left;
-font-weight: 700;
-margin:4rem 4rem 1rem 4rem;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-
-@media ${devices.tablet}{
-    font-size: 26px;
-}
-@media ${devices.mobileL}{
+    font-family: Inter;
     font-size: 28px;
+    color: ${({ theme }) => theme.textColor1};
     text-align: left;
-}
+    font-weight: 700;
+    margin:4rem 4rem 1rem 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media ${devices.tablet}{
+        font-size: 26px;
+    }
+    @media ${devices.mobileL}{
+        font-size: 28px;
+        text-align: left;
+    }
+    @media ${devices.mobileS}{
+        font-size: 20px;
+        margin: 2rem;
+    }
 `;
 
 const CloseButtonStyled = styled(CloseIcon)`
@@ -86,7 +97,12 @@ const UserContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
     margin-left: 4em;
+
+    @media ${devices.mobileS}{
+        margin-left: 2em;
+    }
 `
 
 const SMLogo = styled.img`
@@ -114,12 +130,30 @@ const MetricsContainer = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin: 2rem 4rem 0rem 4rem;
+    margin: 2rem 4rem 2rem 4rem;
+    flex-wrap: wrap;
+
+    @media ${devices.tablet}{
+        flex-direction: column;
+        align-items: baseline;
+    }
+
+    @media ${devices.mobileS}{
+        margin: 2em;
+    }
 `
+
+const TotalFollowersContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+`
+
 
 const TotalFollowersNumber = styled(IndicatorValue)`
     font-family: Inter;
-    font-size: 54px;
+    font-size: 40px;
     color: ${({ theme }) => theme.textColor1};
     font-weight: 700;
     margin: 0;
@@ -148,6 +182,10 @@ const NewFollowers10Container = styled.div`
     justify-content: space-evenly;
     align-items: center;
     margin-left: 2rem;
+
+    @media ${devices.tablet}{
+        margin-left: 0;
+    }
 `
 
 const NFArrow = styled.img`
@@ -157,7 +195,7 @@ const NFArrow = styled.img`
 `
 const NF10daysValue = styled.div<{ $value: number }>`
     font-family: Inter;
-    font-size: 54px;
+    font-size: 40px;
     text-align: left;
     font-weight: 700;
     color: ${({ $value }) => $value > 0 ? primary.primaryGreen : primary.primaryRed};
@@ -178,11 +216,15 @@ const NewFollowersTodayContainer = styled.div`
     justify-content: space-evenly;
     align-items: center;
     margin-left: 2rem;
+
+    @media ${devices.tablet}{
+        margin-left: 0;
+    }
 `
 
 const NFTodayValue = styled.div<{ $value: number }>`    
     font-family: Inter;
-    font-size: 54px;
+    font-size: 40px;
     text-align: left;
     font-weight: 700;
     color: ${({ $value }) => $value > 0 ? primary.primaryGreen : primary.primaryRed};
@@ -199,13 +241,9 @@ const NFTodayText = styled.h3`
 `
 
 const Modal = ({ isOpen, onClose, socialNetworkName, socialLogo, userName, followers, todayDiff, diff10days, followerName }: IModalProps) => {
-
     if (!isOpen) {
         return null;
     }
-
-    const newFollowers10days = 81;
-    // const newFollowersToday = 12;
 
     return (
         <ModalContainer>
@@ -219,10 +257,11 @@ const Modal = ({ isOpen, onClose, socialNetworkName, socialLogo, userName, follo
                     <UserName>{userName}</UserName>
                 </UserContainer>
                 <MetricsContainer>
-                    <TotalFollowersNumber>{followers}</TotalFollowersNumber>
-                    <TotalFollowersLabel>Total {followerName}</TotalFollowersLabel>
+                    <TotalFollowersContainer>
+                        <TotalFollowersNumber>{followers}</TotalFollowersNumber>
+                        <TotalFollowersLabel>Total {followerName}</TotalFollowersLabel>
+                    </TotalFollowersContainer>
                     <NewFollowers10Container>
-                        {/* <NFArrow src={(newFollowers > 0) ? arrowUp : arrowDown}></NFArrow> */}
                         <NFArrow src={(diff10days > 0) ? arrowUp : arrowDown}></NFArrow>
                         <NF10daysValue $value={diff10days}>
                             {Math.abs(diff10days)}
@@ -239,7 +278,7 @@ const Modal = ({ isOpen, onClose, socialNetworkName, socialLogo, userName, follo
                 </MetricsContainer>
                 <IndicatorChart />
             </ModalStyled>
-            <ModalBackgroundStyled />
+            <ModalBackdrop onClick={onClose} />
         </ModalContainer>
     );
 };

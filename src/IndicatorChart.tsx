@@ -15,10 +15,39 @@ const data = [
     { x: 13, y: 12 },
 ];
 
+const CustomTooltipContainer = styled.div`
+    background-color: ${({ theme }) => theme.chartBg};
+    color: ${primary.chart};
+    font-size: 0.75rem;
+    border: 1px solid ${primary.chart};
+    padding: 0.5em;
+`
+
+interface ICustomTooltipProps {
+    payload?: any;
+    label?: any;
+    active?: any;
+}
+
+function CustomTooltip({ payload, label, active }: ICustomTooltipProps) {
+    if (active) {
+        const x = label;
+        const y = payload[0].value;
+
+        return (
+            <CustomTooltipContainer>
+                <span>{y} new followers</span>
+            </CustomTooltipContainer>
+        );
+    }
+
+    return null;
+}
+
 const ChartContainer = styled.div`
     background-color: ${({ theme }) => theme.chartBg};
     padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
     border-radius: 23px;
     height: 200px;
 `
@@ -40,8 +69,6 @@ export default function IndicatorChart() {
             <ChartTitle>May 4 - May 13</ChartTitle>
             <ResponsiveContainer width="100%" height="80%">
                 <LineChart
-                    width={500}
-                    height={300}
                     data={data}
                     margin={{
                         top: 5,
@@ -53,7 +80,7 @@ export default function IndicatorChart() {
                     <CartesianGrid strokeDasharray="3 3" stroke={primary.chartTick} />
                     <XAxis dataKey="x" tick={{ stroke: primary.chart, strokeWidth: 0.5, fontSize: '0.65rem' }} tickMargin={8} stroke={primary.chart} />
                     <YAxis tick={{ stroke: primary.chart, strokeWidth: 0.5, fontSize: '0.65rem' }} tickMargin={8} stroke={primary.chart} />
-                    <Tooltip />
+                    <Tooltip content={<CustomTooltip />} />
                     <Line type="monotone" dataKey="y" stroke={primary.chart} dot={{ r: 4, fill: theme.chartBg }} activeDot={{ r: 6, fill: primary.chart, stroke: primary.chart }} />
                 </LineChart>
             </ResponsiveContainer>
