@@ -36,8 +36,8 @@ const ModalStyled = styled.div`
     justify-content: flex-start;
     background:  ${({ theme }) => theme.chartBg2};
     border-radius: 23px;
-    position: absolute;
-    top: 20%;
+    position: fixed;
+    top: 12%;
     left: 50%;
     transform: translate(-50%);
     min-width: 30rem;
