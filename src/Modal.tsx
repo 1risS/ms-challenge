@@ -44,7 +44,7 @@ const ModalStyled = styled.div`
     z-index: 2;
     width: 80%;
 
-    @media ${devices.mobileS}{
+    @media ${devices.mobileL}{
         top: 10%;
         width: 100%;
         min-width: auto;
