@@ -50,7 +50,7 @@ const OverviewCardContainer = styled.div`
 
 const Indicator = styled.div`
     font-family: Inter;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     color:  ${({ theme }) => theme.textColor2};
     position: absolute;
