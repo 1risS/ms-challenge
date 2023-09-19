@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ms-challenge/static/css/main.e6c13ad2.css",
-    "main.js": "/ms-challenge/static/js/main.c2184b83.js",
+    "main.js": "/ms-challenge/static/js/main.42032a1b.js",
     "static/js/787.b9b18f27.chunk.js": "/ms-challenge/static/js/787.b9b18f27.chunk.js",
     "static/media/icon-instagram.svg": "/ms-challenge/static/media/icon-instagram.568b5795d56c7d9247f495cb5488f8be.svg",
     "index.html": "/ms-challenge/index.html",
@@ -12,11 +12,11 @@
     "static/media/icon-down.svg": "/ms-challenge/static/media/icon-down.0c77426d8f1ab70c4ae629868c263878.svg",
     "static/media/icon-up.svg": "/ms-challenge/static/media/icon-up.359200b20d83a37cfb26d6de21236570.svg",
     "main.e6c13ad2.css.map": "/ms-challenge/static/css/main.e6c13ad2.css.map",
-    "main.c2184b83.js.map": "/ms-challenge/static/js/main.c2184b83.js.map",
+    "main.42032a1b.js.map": "/ms-challenge/static/js/main.42032a1b.js.map",
     "787.b9b18f27.chunk.js.map": "/ms-challenge/static/js/787.b9b18f27.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.c2184b83.js"
+    "static/js/main.42032a1b.js"
   ]
 }
