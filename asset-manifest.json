@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.c3548847.js",
-    "static/js/787.b9b18f27.chunk.js": "/static/js/787.b9b18f27.chunk.js",
-    "static/media/icon-instagram.svg": "/static/media/icon-instagram.568b5795d56c7d9247f495cb5488f8be.svg",
-    "index.html": "/index.html",
-    "static/media/icon-twitter.svg": "/static/media/icon-twitter.a0c5f64d440de29ad911970d8d8eb821.svg",
-    "static/media/icon-youtube.svg": "/static/media/icon-youtube.cad14335e1f2ede979c61c8cb1a6f6f5.svg",
-    "static/media/icon-facebook.svg": "/static/media/icon-facebook.8deee3e3b5c57f63a1f487e146852570.svg",
-    "static/media/x-icon.svg": "/static/media/x-icon.ac56e0d0c6ab8173fa07fc5d7ba9756f.svg",
-    "static/media/icon-down.svg": "/static/media/icon-down.0c77426d8f1ab70c4ae629868c263878.svg",
-    "static/media/icon-up.svg": "/static/media/icon-up.359200b20d83a37cfb26d6de21236570.svg",
-    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.c3548847.js.map": "/static/js/main.c3548847.js.map",
-    "787.b9b18f27.chunk.js.map": "/static/js/787.b9b18f27.chunk.js.map"
+    "main.css": "/ms-challenge/static/css/main.e6c13ad2.css",
+    "main.js": "/ms-challenge/static/js/main.c2184b83.js",
+    "static/js/787.b9b18f27.chunk.js": "/ms-challenge/static/js/787.b9b18f27.chunk.js",
+    "static/media/icon-instagram.svg": "/ms-challenge/static/media/icon-instagram.568b5795d56c7d9247f495cb5488f8be.svg",
+    "index.html": "/ms-challenge/index.html",
+    "static/media/icon-twitter.svg": "/ms-challenge/static/media/icon-twitter.a0c5f64d440de29ad911970d8d8eb821.svg",
+    "static/media/icon-youtube.svg": "/ms-challenge/static/media/icon-youtube.cad14335e1f2ede979c61c8cb1a6f6f5.svg",
+    "static/media/icon-facebook.svg": "/ms-challenge/static/media/icon-facebook.8deee3e3b5c57f63a1f487e146852570.svg",
+    "static/media/x-icon.svg": "/ms-challenge/static/media/x-icon.ac56e0d0c6ab8173fa07fc5d7ba9756f.svg",
+    "static/media/icon-down.svg": "/ms-challenge/static/media/icon-down.0c77426d8f1ab70c4ae629868c263878.svg",
+    "static/media/icon-up.svg": "/ms-challenge/static/media/icon-up.359200b20d83a37cfb26d6de21236570.svg",
+    "main.e6c13ad2.css.map": "/ms-challenge/static/css/main.e6c13ad2.css.map",
+    "main.c2184b83.js.map": "/ms-challenge/static/js/main.c2184b83.js.map",
+    "787.b9b18f27.chunk.js.map": "/ms-challenge/static/js/787.b9b18f27.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.c3548847.js"
+    "static/js/main.c2184b83.js"
   ]
 }
