@@ -111,10 +111,15 @@ Screenshots of the Design files:
 
 <img width="116" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/71fadd64-106a-4676-b17a-8ab935698969">
 
+
 10. **Chart**
 
-   This chart required quite a bit of customization to visually match the design. As some props were not documented, I had to read the library's code to make the necessary changes. Additionally, I had to obtain colors that were not documented.
+   This chart required quite a bit of customization to visually match the design. As some props were not documented, I had to read the library's code to make the necessary changes. I also had to learn how to create a custom tooltip. Additionally, I had to obtain colors that were not documented.
 
 Screenshot of Figma:
 
 <img width="472" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/37b6129e-1c58-440b-8303-f528878e9cd6">
+
+# Conclusion
+
+   Although some things were new, I felt very confident across this coding process. I enjoyed having skills enough to reflect the provided design correctly. I love the way the app adapts to all device sizes and even in rare devices all the components get well organized, legible and respecting the visual hierarchy provided by the design files. I hope you find my method solid enough to be part of your team! 
