@@ -26,11 +26,15 @@
    I started by coding the Header and found an initial inconsistency in the Dashboard design: both themes displayed the label "Dark Mode." I assumed it should show the word that described the active state. I also noticed that there was no color definition for the switch's little circle in the style-guide.md, which led me to inspect the Figma file. 
 
 Screenhsots of the Design files:
+
 <img width="440" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/68cd32fe-6999-4bdc-ab41-3fd824dfdf64">
+
 <img width="400" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/bb2cd27a-7f6c-49fc-9d48-614f3f31c967">
 
 Screenshot of my app:
+
 <img width="150" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/b38737eb-02d3-4eeb-b4a7-98eb3761d2ba">
+
 <img width="149" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/0d6a3a68-4f62-4763-9468-c20adce36c13">
 
 While working on the Card component, I listed what would later become keys of an object to feed the instantiated cards:
