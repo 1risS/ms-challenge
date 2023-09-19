@@ -81,7 +81,7 @@ Screenshot of my code:
 
 6. **Toggle**
 
-   To ensure that the switch effectively changes colors according to the theme, I passed props from the `ModeToggler` component to its parent `Header` and hacked its parent `Ap`p component where the Theme provider is located, allowing the switch's state to set the theme. Retrospectivley, In hindside, I find an opportunity for improvement here: using React Context and the Context API. This way, I could provide the theme and the function to toggle it at the top-level component (`App`) and access it from any child component without having to pass it as props.
+   To ensure that the switch effectively changes colors according to the theme, I passed props from the `ModeToggler` component to its parent `Header` and hacked its parent `App` component where the Theme provider is located, allowing the switch's state to set the theme. In hindside, I find an opportunity for improvement here: using React Context and the Context API. This way, I could provide the theme and the function to toggle it at the top-level component (`App`) and access it from any child component without having to pass it as props.
 
 7. **Active States**
 
