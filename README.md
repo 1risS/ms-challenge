@@ -47,9 +47,12 @@ While working on the Card component, I listed what would later become keys of an
    I also identified two new challenges:
    - Making the Follower Growth Rate display as green or red (with the corresponding up or down arrow) as needed.
 
-Screenshots of my code:     
+Screenshots of my code:   
+  
 <img width="639" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/81b12bf6-692c-4931-95ed-24b1f4b40037">
 <img width="492" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/547996ab-da9f-4d5a-b731-ca2f759fb126">
+
+Screenshots of my app:
 
 <img width="153" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/6d26ab0a-b342-4109-8b52-a1c9c7183665">
 <img width="126" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/d4201b60-6db3-4e72-8b3a-b8583fa2249e">
@@ -57,6 +60,7 @@ Screenshots of my code:
    - Making values greater than 10,000 visually represent as "K.". Since this was repeated in the Modal also, I decided to create an IndicatorValue component to handle this.
 
 Screenshot of my code:
+
 <img width="560" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/9277f6b5-cfac-4a5a-8b18-b57355dbbd72">
 
    The Overview Card also needed to receive the following content via props:
@@ -72,6 +76,7 @@ Screenshot of my code:
 First, I reflected all the provided information in the `style-guide.md` file, including colors by theme, common colors, undefined colors (which I obtained by inspecting the Figma designs), and device measurements to control breakpoints and achieve responsive design. Then, I refactored my components so that their style referred to the definitions in the Theme.tsx file.
 
 Screenshot of my code:
+
 <img width="351" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/52c80927-f3bd-4d7c-ac46-5bb5dae851c6">
 
 6. **Toggle**
@@ -83,7 +88,9 @@ Screenshot of my code:
    I had to extract color information by inspecting the design JPG in Figma. I added the colors to `Theme.tsx`. I added a pointer cursor for the cards and the switch and configured the behavior on hover.
 
 Screenshot of Figma:
+
 <img width="569" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/4e6e318c-6e80-468d-9273-b2d9b815f244">
+
 <img width="566" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/c1f35a75-4534-4f07-af97-61633e2df3b5">
 
 
@@ -93,12 +100,15 @@ Screenshot of Figma:
    I had to create the x icon (modal closening) in Figma exported as SVG in order to chage its color according to the theme selected.
 
 Screenshot of Figma:
+
 <img width="349" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/5941f0ef-a68f-426f-baf8-9d091d5cda66">
 
    I also found a Design inconsistency here. The "Total followers" number shows the main color for text in the Dark Theme design, but in the Light theme a non-documented gray is being used. I decided to keep the style structure and just use the main color for the Light Theme instead.
 
 Screenshots of the Design files:
+
 <img width="118" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/abfe1ffc-b629-418b-8dda-373ad3858de5">
+
 <img width="116" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/71fadd64-106a-4676-b17a-8ab935698969">
 
 10. **Chart**
@@ -106,4 +116,5 @@ Screenshots of the Design files:
    This chart required quite a bit of customization to visually match the design. As some props were not documented, I had to read the library's code to make the necessary changes. Additionally, I had to obtain colors that were not documented.
 
 Screenshot of Figma:
+
 <img width="472" alt="image" src="https://github.com/1risS/ms-challenge/assets/31085755/37b6129e-1c58-440b-8303-f528878e9cd6">
