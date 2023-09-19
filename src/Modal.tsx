@@ -36,15 +36,14 @@ const ModalStyled = styled.div`
     background:  ${({ theme }) => theme.chartBg2};
     border-radius: 23px;
     position: fixed;
-    top: 12%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%);
+   transform: translate(-50%,-50%);
     min-width: 30rem;
     z-index: 2;
     width: 80%;
 
     @media ${devices.mobileL}{
-        top: 10%;
         width: 100%;
         min-width: auto;
     }
@@ -60,9 +59,11 @@ const ModalHeader = styled.h1`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     @media ${devices.tablet}{
         font-size: 26px;
+        margin: 2rem 2rem 1rem 2rem;
     }
     @media ${devices.mobileL}{
         font-size: 28px;
@@ -99,8 +100,8 @@ const UserContainer = styled.div`
     align-items: center;
     margin-left: 4em;
 
-    @media ${devices.mobileS}{
-        margin-left: 2em;
+    @media ${devices.tablet}{
+        margin-left: 2rem;
     }
 `
 
@@ -133,8 +134,7 @@ const MetricsContainer = styled.div`
     flex-wrap: wrap;
 
     @media ${devices.tablet}{
-        flex-direction: column;
-        align-items: baseline;
+        margin-left:2rem;
     }
 
     @media ${devices.mobileS}{
@@ -155,7 +155,7 @@ const TotalFollowersNumber = styled(IndicatorValue)`
     font-size: 40px;
     color: ${({ theme }) => theme.textColor1};
     font-weight: 700;
-    margin: 0;
+    margin-right: 0.5rem;
 
     @media ${devices.tablet}{
         font-size: 50px;
@@ -172,7 +172,7 @@ const TotalFollowersLabel = styled.div`
     font-weight: 400;
     color: ${({ theme }) => theme.textColor1};
     width: 80px;
-    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 `
 
 const NewFollowers10Container = styled.div`
@@ -180,7 +180,7 @@ const NewFollowers10Container = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin-left: 2rem;
+    margin-right: 2rem;
 
     @media ${devices.tablet}{
         margin-left: 0;
@@ -198,6 +198,7 @@ const NF10daysValue = styled.div<{ $value: number }>`
     text-align: left;
     font-weight: 700;
     color: ${({ $value }) => $value > 0 ? primary.primaryGreen : primary.primaryRed};
+    margin-right: 0.5rem;
 `
 const NF10daysTxt = styled.h3`
     font-family: Inter;
@@ -206,7 +207,7 @@ const NF10daysTxt = styled.h3`
     font-weight: 400;
     color: ${({ theme }) => theme.textColor1};
     width: 140px;
-    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 `
 
 const NewFollowersTodayContainer = styled.div`
@@ -214,7 +215,7 @@ const NewFollowersTodayContainer = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin-left: 2rem;
+    margin-right: 2rem;
 
     @media ${devices.tablet}{
         margin-left: 0;
