@@ -5,7 +5,6 @@ import arrowUp from "./assets/icon-up.svg"
 import arrowDown from "./assets/icon-down.svg"
 import IndicatorValue from "./IndicatorValue";
 import IndicatorChart from "./IndicatorChart";
-import { KeyboardEventHandler } from "react";
 
 interface IModalProps {
     isOpen: boolean;

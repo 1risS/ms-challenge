@@ -54,7 +54,8 @@ const CardsContainer = styled.div`
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 3em;
+    flex-wrap: wrap;
+    /* margin-top: 3em; */
 
     @media ${devices.mobileL}{
         flex-direction: column;

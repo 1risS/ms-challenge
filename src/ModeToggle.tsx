@@ -52,7 +52,7 @@ const Switch = styled.div`
 const Input = styled.input`
   opacity: 0;
   position: absolute;
-
+  // switch animation
   &:checked + ${Switch} {
     &:before {
       transform: translate(24px, -50%);

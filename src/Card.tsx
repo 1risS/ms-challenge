@@ -4,8 +4,7 @@ import { devices, primary } from './Theme'
 import arrowUp from './assets/icon-up.svg'
 import arrowDown from './assets/icon-down.svg'
 import Modal from './Modal'
-import { useEffect, useState } from 'react'
-import IndicatorNumber from "./IndicatorValue";
+import { useState } from 'react'
 import IndicatorValue from "./IndicatorValue";
 
 const CardContainer = styled.div<{ $borderColor: string }>`
@@ -20,6 +19,7 @@ const CardContainer = styled.div<{ $borderColor: string }>`
     border-top: 6px solid transparent;
     border-image: ${props => props.$borderColor};
     border-image-slice: 1;
+    margin-top: 3em;
     cursor: pointer;
 
     &:hover{
@@ -151,7 +151,14 @@ const Card = ({ socialNetworkName, socialLogo, userName, followers, todayDiff, d
             <Modal isOpen={isModalOpen} onClose={(e) => {
                 e.stopPropagation()
                 setIsModalOpen(false)
-            }} socialNetworkName={socialNetworkName} socialLogo={socialLogo} userName={userName} followers={followers} todayDiff={todayDiff} followerName={followerName} diff10days={diff10days}></Modal>
+            }}
+                socialNetworkName={socialNetworkName}
+                socialLogo={socialLogo}
+                userName={userName}
+                followers={followers}
+                todayDiff={todayDiff}
+                followerName={followerName}
+                diff10days={diff10days} />
             <UserContainer>
                 <SMLogo src={socialLogo}></SMLogo>
                 <UserName> {userName} </UserName>
